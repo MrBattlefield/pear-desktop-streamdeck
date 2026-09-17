@@ -99,6 +99,14 @@ npm run build
 
 The project uses TypeScript, esbuild, and the Elgato Stream Deck SDK. Changes are built into the `build` directory for local testing.
 
+After a build has been tested and confirmed as a working milestone, save a local copy with:
+
+```powershell
+npm run archive-build -- 0.0.1
+```
+
+The package is saved under `local-builds/0.0.1/`. Confirmed milestones are published to GitHub Releases by bumping the project version and pushing the conventional commit that triggers the release workflow.
+
 ## Support
 
 Report bugs and request features in the [GitHub issue tracker](https://github.com/MrBattlefield/pear-desktop-streamdeck/issues).

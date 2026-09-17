@@ -5,6 +5,7 @@ node_modules/
 dist/
 coverage/
 build/
+local-builds/
 bundle.js
 bundle-pi.js
 DistributionTool.exe
