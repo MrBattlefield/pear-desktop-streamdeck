@@ -1,5 +1,75 @@
 # Changelog
 
+## [1.0.0](https://github.com/PixelPulseDev/pear-desktop-streamdeck/compare/v0.0.1...v1.0.0) (2026-09-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove library action (not available anymore)
+* migrate to v2 of ytmdesktop ([#98](https://github.com/PixelPulseDev/pear-desktop-streamdeck/issues/98))
+* settings changed due to migration
+
+### Features
+
+* add automatic vol change while key pressed ([a925cd0](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/a925cd0a5060c10dbaf7072fb455950452565a84))
+* add better error logging ([6408555](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/6408555e11cd6bbc16c70a6608bbd1208cf95ca4))
+* add dial navigation mode and icon themes ([327103f](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/327103f07d79fb945afe6b5d53f8bb01c428284f))
+* add discord link to help section ([67b67ad](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/67b67ad9a5a916c45e1ab933af55f7084540964e))
+* add display settings ([95aecfd](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/95aecfde6b8b0b8333a4bd231c0b41ea9e022a8e))
+* add english translation file ([ebc6243](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/ebc6243007e1b45a94624591865154e24496e550))
+* add French translation ([#102](https://github.com/PixelPulseDev/pear-desktop-streamdeck/issues/102)) ([cfca17a](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/cfca17a615a429eb3189e095fe037e6b93d1c784))
+* add German translation for manifest ([b09fddc](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/b09fddcc6b9bb046c99a73ad087530c575c538c0))
+* add library action ([574cb55](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/574cb552fab057517a8de1e91cf7cf746fa0056e)), closes [#50](https://github.com/PixelPulseDev/pear-desktop-streamdeck/issues/50)
+* add localization support for PI ([dd728a3](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/dd728a3c33252b41f47f0a5768ed9c5ba4348ddf))
+* add repeat action ([3fc6c11](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/3fc6c11c19671d3622e0a2e57decc2db68b17bbf))
+* add select dropdown to play-pause action ([d9590cd](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/d9590cdf510d23fbcda557b7987ea2d51a89628f)), closes [#44](https://github.com/PixelPulseDev/pear-desktop-streamdeck/issues/44)
+* add shuffle action ([3ddd44a](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/3ddd44a64adf595f1bd3e40ec16b9cde519cc074))
+* add streamdeck+ support ([ba5e573](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/ba5e5736898c8e296f8900c5c432afcf9a969dcd))
+* add streamdeck+ support ([040c3a5](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/040c3a524e015dfc11c1fe9df6fe10191ff41bf8))
+* improve global connection UI and add playlist action support ([7f4341e](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/7f4341e2f8bb7b000698046d1f49c8fb06127d8b))
+* migrate to v2 of ytmdesktop ([#98](https://github.com/PixelPulseDev/pear-desktop-streamdeck/issues/98)) ([67b67ad](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/67b67ad9a5a916c45e1ab933af55f7084540964e))
+* now show "Paused" or "N/A" if paused or N/A ([d821e08](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/d821e087be89ca07ddbe27a9d3fd2e4a0b2c76da))
+* publish Pear Desktop plugin updates ([40680f9](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/40680f9c187fb1050e9913e046a79c4e199777e1))
+* show cover while paused ([d386607](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/d3866074767d58cd55d5e26f9698c92a1b11041d)), closes [#43](https://github.com/PixelPulseDev/pear-desktop-streamdeck/issues/43)
+* streamdeck+ Song title and custom layout ([54b573d](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/54b573d950e0b1e45d2396032d263b45ae77429a))
+
+
+### Bug Fixes
+
+* add missing noopener ([d5eb8d7](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/d5eb8d700e148f5a21c97b91da5efa942f1f9e22))
+* add missing translations ([67b67ad](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/67b67ad9a5a916c45e1ab933af55f7084540964e))
+* add monospaced font to song info ([840e8f3](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/840e8f3018a6c4b7eb59255fef5cefa3d8f5b5d9))
+* english grammar issues. ([6b6b8b4](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/6b6b8b4d933821da0f29f1f505e6779e2b60ee8a))
+* **likedislike:** ignore unknown state for like/dislike state due to ytmd native issues ([#121](https://github.com/PixelPulseDev/pear-desktop-streamdeck/issues/121)) ([36b44eb](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/36b44eb7252c63c523ba52809199bae0b1d0f5f1)), closes [#116](https://github.com/PixelPulseDev/pear-desktop-streamdeck/issues/116)
+* missing actions in property inspector ([ad39dd8](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/ad39dd8677306601f0d5b169a99b39856d643fd9))
+* missing translation file causes crash ([716c464](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/716c464578b291cfdff41f52fb88fbc074541373))
+* mute/unmute just mutes ([64d546d](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/64d546dab289078e9c58c5760c1ac727261fa85e))
+* now the like action likes the track and not dislikes it ([61dd86f](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/61dd86f09f129afbde69878601d834c1531d8a06))
+* **pi:** settings don't get auto-populated ([7e4d781](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/7e4d7818c4854fdf09c644564dec3f7aa7895c6e)), closes [#115](https://github.com/PixelPulseDev/pear-desktop-streamdeck/issues/115)
+* **play-pause:** changes to error handling ([54b573d](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/54b573d950e0b1e45d2396032d263b45ae77429a))
+* remove leak in mute action ([9c1c6a6](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/9c1c6a64e920bc126e3faf1ad9c0b77f597ae980))
+* remove library action (not available anymore) ([67b67ad](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/67b67ad9a5a916c45e1ab933af55f7084540964e))
+* repeat mode only disables ([20c89d1](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/20c89d1e0d4f29bcf6ad64977dbeef9926972623))
+* set image crossOrigin to `anonymous` to avoid CORS restrictions ([de5cf1a](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/de5cf1a4d53649105d7f59d6e020ab10fac3e587))
+* show sdplus settings only when sdplus is detected ([54b573d](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/54b573d950e0b1e45d2396032d263b45ae77429a))
+* track info breaks when adding two instances ([cd33b8d](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/cd33b8da4ad36c46bd14324cab0ebe7afc9acf8f))
+* update information correctly on profile switch ([6f56ca0](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/6f56ca0243fd1b83439cd41c397ea935da98866c))
+* update localized plugin metadata ([96b95c4](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/96b95c45f884d4a6e48c6dfaf322f3aa438757bf))
+* update plugin name to full version ([8b0c332](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/8b0c3320ce59b741b3165a1c8ac3a54b66c2c97a))
+* variables are wrong calculated ([083a2dd](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/083a2dd40bcd6d461e806b3d52a972c25637e1cf))
+* volume should update correclty ([632bf34](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/632bf342864169e3c84b7f2b20494698a7b167ec))
+
+
+### Reverts
+
+* "feat: add streamdeck+ support" ([#135](https://github.com/PixelPulseDev/pear-desktop-streamdeck/issues/135)) ([6a83044](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/6a83044e43c655cef352d6b467c11e09705fd2e1))
+* commit 1e449b217c822587c28ba54110f68ea9bd7ad013 ([a3e78a9](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/a3e78a99e3ac436e44cd70346eaeccf7610455ac))
+
+
+### Code Refactoring
+
+* settings changed due to migration ([67b67ad](https://github.com/PixelPulseDev/pear-desktop-streamdeck/commit/67b67ad9a5a916c45e1ab933af55f7084540964e))
+
 ## [2.3.0](https://github.com/XeroxDev/YTMD-StreamDeck/compare/v2.2.0...v2.3.0) (2026-01-06)
 
 
