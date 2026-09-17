@@ -49,15 +49,15 @@ jobs:
         run: npm run prepare:streamdeck-cli
 
       - name: Validate plugin package
-        run: streamdeck validate --no-update-check build/fun.shiro.ytmd.sdPlugin
+        run: streamdeck validate --no-update-check build/com.pear.desktop.streamdeck.sdPlugin
 
       - name: Pack plugin
-        run: streamdeck pack --no-update-check build/fun.shiro.ytmd.sdPlugin --output build --force
+        run: streamdeck pack --no-update-check build/com.pear.desktop.streamdeck.sdPlugin --output build --force
 
       - name: Upload release artifact
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload ${{ needs.release.outputs.tag_name }} build/fun.shiro.ytmd.streamDeckPlugin --clobber
+        run: gh release upload ${{ needs.release.outputs.tag_name }} build/com.pear.desktop.streamdeck.streamDeckPlugin --clobber
 
   close-awaiting-release-issues:
     runs-on: ubuntu-latest

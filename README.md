@@ -1,83 +1,86 @@
-![Thumbnail](assets/thumbnail/ytmdc-thumbnail.png)
+# Pear Desktop Stream Deck Plugin
 
-# 1. Table of content
-- [1. Table of content](#1-table-of-content)
-- [2. Badges](#2-badges)
-- [3. What is this Plugin?](#3-what-is-this-plugin)
-- [4. Support / Feedback](#4-support--feedback)
-- [5. Actions](#5-actions)
-- [6. How to use it?](#6-how-to-use-it)
-- [7. How to contribute?](#7-how-to-contribute)
+![Pear Desktop Stream Deck Plugin](assets/thumbnail/pear-desktop-streamdeck.png)
 
-# 2. Badges
-[![Forks](https://img.shields.io/github/forks/MrBattlefield/pear-desktop-streamdeck?color=blue&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/network/members)
-[![Stars](https://img.shields.io/github/stars/MrBattlefield/pear-desktop-streamdeck?color=yellow&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/stargazers)
-[![Watchers](https://img.shields.io/github/watchers/MrBattlefield/pear-desktop-streamdeck?color=lightgray&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/watchers)
-[![Contributors](https://img.shields.io/github/contributors/MrBattlefield/pear-desktop-streamdeck?color=green&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/graphs/contributors)
+Control [Pear Desktop Music Player](https://github.com/XeroxDev/pear-desktop) from an Elgato Stream Deck. The plugin provides playback, track navigation, likes, dislikes, volume, track information, shuffle, repeat, and playlist controls.
 
-[![Issues](https://img.shields.io/github/issues/MrBattlefield/pear-desktop-streamdeck?color=yellow&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/issues)
-[![Issues closed](https://img.shields.io/github/issues-closed/MrBattlefield/pear-desktop-streamdeck?color=yellow&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/issues?q=is%3Aissue+is%3Aclosed)
+## Install Pear Desktop Music Player
 
-[![Issues-pr](https://img.shields.io/github/issues-pr/MrBattlefield/pear-desktop-streamdeck?color=yellow&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/pulls)
-[![Issues-pr closed](https://img.shields.io/github/issues-pr-closed/MrBattlefield/pear-desktop-streamdeck?color=yellow&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/pulls?q=is%3Apr+is%3Aclosed)
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/compare)
+1. Open the [Pear Desktop releases page](https://github.com/XeroxDev/pear-desktop/releases).
+2. Download the installer for your operating system.
+3. Install Pear Desktop and launch it.
+4. Open **Settings > Integrations** and enable the **Companion Server**.
+5. Enable companion authorization if you want the plugin to authorize itself securely.
 
-[![Release](https://img.shields.io/github/release/MrBattlefield/pear-desktop-streamdeck?color=black&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/releases)
+## Install the Stream Deck Plugin
 
-[![Awesome Badges](https://img.shields.io/badge/badges-awesome-green?style=for-the-badge)](https://shields.io)
+### Download a release
 
-# 3. What is this Plugin?
-This Stream Deck Plugin allows you to control [Pear Desktop Music Player](https://github.com/XeroxDev/pear-desktop)
+1. Open the [Pear Desktop Stream Deck releases page](https://github.com/MrBattlefield/pear-desktop-streamdeck/releases).
+2. Download the `.streamDeckPlugin` file from the latest release.
+3. Double-click the downloaded file and approve the Stream Deck installation.
+4. Open the Stream Deck application and add a Pear Desktop action to a key.
 
-> [!NOTE]
-> we only support version 2.x.x and above, if you are using an older version, please update to the latest version.
+### Build and install the current source
 
-# 4. Support / Feedback
-You found a bug? You have a feature request? I would love to hear about it [here](https://github.com/MrBattlefield/pear-desktop-streamdeck/issues/new/choose) or click on the "Issues" tab here on the GitHub repository!
+Use this path to test the newest code before a GitHub release is available.
 
-You can also join my discord [here](https://x.xeroxdev.de/s/discord)
+```powershell
+git clone https://github.com/MrBattlefield/pear-desktop-streamdeck.git
+cd pear-desktop-streamdeck
+npm ci
+npm run build
+```
 
-# 5. Actions
+The installable plugin folder is created at `build/com.pear.desktop.streamdeck.sdPlugin`. To install it manually, copy that folder into the Stream Deck plugins directory and restart Stream Deck:
 
-- Play / Pause Track
-- Next Track
-- Previous Track
-- Like Track
-- Dislike Track
-- Volume Mute
-- Volume Down
-- Volume Up
-- Track Info
-  - Shows a scrolling text for album, title and author
-  - Shows the thumbnail of the track
-- Shuffle
-- Repeat
-  - NONE
-  - ALL
-  - ONE
+```text
+%APPDATA%\Elgato\StreamDeck\Plugins\com.pear.desktop.streamdeck.sdPlugin
+```
 
-# 6. How to use it?
-> [!NOTE]
-> This is just a simplified version. The project documentation will be published with the new repository.
+You can also install the Elgato CLI and package the build:
 
-1. Install [Pear Desktop Music Player](https://github.com/XeroxDev/pear-desktop).
-2. Install the plugin from [Releases](https://github.com/XeroxDev/Pear-Desktop-StreamDeck/releases) or from the official Stream Deck Store.
-3. Add Play/Pause action
-4. Insert, if not already correct, the settings for Pear Desktop (for example, host and port).
-5. Make sure Pear Desktop and its Companion Server are running.
-  - To start the Companion Server, open Pear Desktop settings and select Integrations
-   - Go on the left side on the "Integrations" tab
-   - Enable the "Companion Server"
-6. Turn on "enable companion authorization" under the Companion Server
-7. Press the Authorize button in the Play/Pause action settings
-8. Compare the authorization code displayed by the plugin with the one displayed in Pear Desktop.
-9. If they match, confirm the authorization in Pear Desktop.
-10. You are ready to go! (Steps 6-9 are only needed once/when the plugin isn't authorized)
+```powershell
+npm install --global @elgato/cli
+npm run prepare:streamdeck-cli
+streamdeck validate build/com.pear.desktop.streamdeck.sdPlugin
+streamdeck pack build/com.pear.desktop.streamdeck.sdPlugin --output build --force
+```
 
-# 7. How to contribute?
+## Connect the plugin
 
-Just fork the repository and create PR's.
+1. Make sure Pear Desktop and its Companion Server are running.
+2. Add the **Play-Pause** action to a Stream Deck key.
+3. Open the action settings and press **Authorize**.
+4. Compare the code shown by the plugin with the code shown in Pear Desktop.
+5. Confirm the authorization in Pear Desktop.
+6. Add the remaining Pear Desktop actions to your Stream Deck.
 
-> [!NOTE]
-> We're using [release-please](https://github.com/googleapis/release-please) to optimal release the plugin.
-> release-please is following the [conventionalcommits](https://www.conventionalcommits.org) specification.
+Authorization is normally required only once per installation.
+
+## Available actions
+
+- Play or pause the current track
+- Next and previous track
+- Like and dislike the current track
+- Mute, increase, and decrease volume
+- Track information with thumbnail, title, and artist
+- Shuffle and repeat modes
+- Play a selected playlist
+
+## Development
+
+```powershell
+npm ci
+npm run build
+```
+
+The project uses TypeScript, esbuild, and the Elgato Stream Deck SDK. Changes are built into the `build` directory for local testing.
+
+## Support
+
+Report bugs and request features in the [GitHub issue tracker](https://github.com/MrBattlefield/pear-desktop-streamdeck/issues).
+
+## License
+
+This project is available under the [MIT License](LICENSE).

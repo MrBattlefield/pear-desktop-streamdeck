@@ -31,13 +31,13 @@ jobs:
         run: npm run prepare:streamdeck-cli
 
       - name: Validate plugin package
-        run: streamdeck validate --no-update-check build/fun.shiro.ytmd.sdPlugin
+        run: streamdeck validate --no-update-check build/com.pear.desktop.streamdeck.sdPlugin
 
       - name: Pack plugin
-        run: streamdeck pack --no-update-check build/fun.shiro.ytmd.sdPlugin --output build --force
+        run: streamdeck pack --no-update-check build/com.pear.desktop.streamdeck.sdPlugin --output build --force
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: streamdeck-plugin
-          path: build/fun.shiro.ytmd.streamDeckPlugin
+          path: build/com.pear.desktop.streamdeck.streamDeckPlugin

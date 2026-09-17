@@ -9,7 +9,7 @@ body:
     options:
     - label: I have searched the existing issues and verified that there is no open issue for the same subject.
       required: true
-    - label: I understand that the YTMDesktop Elgato Plugin has NO affiliation with Google, YouTube or the YTMDesktop application.
+    - label: I understand that this Pear Desktop Stream Deck Plugin is an independent open-source project.
       required: true
 - type: textarea
   attributes:

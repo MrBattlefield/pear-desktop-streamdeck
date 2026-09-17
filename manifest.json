@@ -6,7 +6,7 @@
   "UUID": "com.pear.desktop.streamdeck",
   "Icon": "icons/action-image",
   "Version": "2.3.0",
-  "Category": "Pear Desktop",
+  "Category": "Pear Desktop Stream Deck Plugin",
   "CategoryIcon": "icons/category-icon",
   "SDKVersion": 2,
   "Software": {
