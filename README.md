@@ -1,6 +1,8 @@
 # Pear Desktop Stream Deck Plugin
 
-![Pear Desktop Stream Deck Plugin](assets/thumbnail/pear-desktop-streamdeck.png)
+![PixelPulse company banner](assets/branding/company-banner.png)
+
+![PixelPulse logo](assets/branding/company-logo.png)
 
 Control [Pear Desktop Music Player](https://github.com/XeroxDev/pear-desktop) from an Elgato Stream Deck. The plugin provides playback, track navigation, likes, dislikes, volume, track information, shuffle, repeat, and playlist controls.
 
