@@ -1,8 +1,8 @@
 {
   "Name": "Pear Desktop Stream Deck Plugin",
-  "Author": "MrBattlefield",
+  "Author": "PixelPulseDev",
   "Description": "Control Pear Desktop Music Player from Stream Deck.",
-  "URL": "https://github.com/MrBattlefield/pear-desktop-streamdeck",
+  "URL": "https://github.com/PixelPulseDev/pear-desktop-streamdeck",
   "UUID": "com.pear.desktop.streamdeck",
   "Icon": "icons/action-image",
   "Version": "2.3.0",

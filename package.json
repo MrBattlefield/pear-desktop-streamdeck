@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MrBattlefield/pear-desktop-streamdeck.git"
+    "url": "git+https://github.com/PixelPulseDev/pear-desktop-streamdeck.git"
   },
-  "author": "MrBattlefield",
+  "author": "PixelPulseDev",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MrBattlefield/pear-desktop-streamdeck/issues"
+    "url": "https://github.com/PixelPulseDev/pear-desktop-streamdeck/issues"
   },
-  "homepage": "https://github.com/MrBattlefield/pear-desktop-streamdeck#readme",
+  "homepage": "https://github.com/PixelPulseDev/pear-desktop-streamdeck#readme",
   "dependencies": {
     "intl-messageformat": "^10.7.10",
     "streamdeck-typescript": "^3.3.4",

@@ -16,7 +16,7 @@ Control [Pear Desktop Music Player](https://github.com/XeroxDev/pear-desktop) fr
 
 ### Download a release
 
-1. Open the [Pear Desktop Stream Deck releases page](https://github.com/MrBattlefield/pear-desktop-streamdeck/releases).
+1. Open the [Pear Desktop Stream Deck releases page](https://github.com/PixelPulseDev/pear-desktop-streamdeck/releases).
 2. Download the `.streamDeckPlugin` file from the latest release.
 3. Double-click the downloaded file and approve the Stream Deck installation.
 4. Open the Stream Deck application and add a Pear Desktop action to a key.
@@ -26,7 +26,7 @@ Control [Pear Desktop Music Player](https://github.com/XeroxDev/pear-desktop) fr
 Use this path to test the newest code before a GitHub release is available.
 
 ```powershell
-git clone https://github.com/MrBattlefield/pear-desktop-streamdeck.git
+git clone https://github.com/PixelPulseDev/pear-desktop-streamdeck.git
 cd pear-desktop-streamdeck
 npm ci
 npm run build
@@ -109,7 +109,7 @@ The package is saved under `local-builds/0.0.1/`. Confirmed milestones are publi
 
 ## Support
 
-Report bugs and request features in the [GitHub issue tracker](https://github.com/MrBattlefield/pear-desktop-streamdeck/issues).
+Report bugs and request features in the [GitHub issue tracker](https://github.com/PixelPulseDev/pear-desktop-streamdeck/issues).
 
 ## License
 
