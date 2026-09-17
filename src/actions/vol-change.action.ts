@@ -1,5 +1,5 @@
 import {KeyDownEvent, KeyUpEvent, SDOnActionEvent, WillAppearEvent, WillDisappearEvent, DialRotateEvent, DialUpEvent} from 'streamdeck-typescript';
-import {YTMD} from '../ytmd';
+import {YTMD} from '../pear-desktop';
 import {DefaultAction} from './default.action';
 import {StateOutput} from "ytmdesktop-ts-companion";
 

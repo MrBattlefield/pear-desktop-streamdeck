@@ -1,5 +1,5 @@
 import { DidReceiveSettingsEvent, SettingsManager } from 'streamdeck-typescript';
-import { YTMDPi } from '../ytmd-pi';
+import { YTMDPi } from '../pear-desktop-pi';
 
 export class PisAbstract {
     protected pi: YTMDPi;

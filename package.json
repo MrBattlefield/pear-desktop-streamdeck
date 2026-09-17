@@ -1,5 +1,5 @@
 {
-  "name": "fun.shiro.ytmd.sdplugin",
+  "name": "com.pear.desktop.streamdeck",
   "version": "2.3.0",
   "description": "",
   "scripts": {
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://XeroxDev@github.com/XeroxDev/YTMD-StreamDeck.git"
+    "url": "git+https://github.com/MrBattlefield/pear-desktop-streamdeck.git"
   },
   "author": "XeroxDev",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/XeroxDev/YTMD-StreamDeck/issues"
+    "url": "https://github.com/MrBattlefield/pear-desktop-streamdeck/issues"
   },
-  "homepage": "https://github.com/XeroxDev/YTMD-StreamDeck#readme",
+  "homepage": "https://github.com/MrBattlefield/pear-desktop-streamdeck#readme",
   "dependencies": {
     "intl-messageformat": "^10.7.10",
     "streamdeck-typescript": "^3.3.4",

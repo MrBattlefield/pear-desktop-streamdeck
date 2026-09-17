@@ -1,13 +1,19 @@
 import {ErrorOutput, SocketState} from "ytmdesktop-ts-companion";
-import {YTMDPi} from "../../ytmd-pi";
+import {YTMDPi} from "../../pear-desktop-pi";
 import {PluginData} from "../../shared/plugin-data";
 import {GlobalSettingsInterface} from "../../interfaces/global-settings.interface";
 import {getCompanionConnector} from "../services/companion-singleton";
+import {PearSocketClient} from '../../services/pear-socket-client';
 
 export class GlobalSettingsPi {
     private authToken: string = '';
     private static socketListenersAttached = false;
     private static lastSettingsKey = '';
+    private autoAuthorizationAttempted = false;
+    private authRetryTimer: number | undefined;
+    private authRetryCount = 0;
+    private readonly maxAuthRetries = 3;
+    private socket = new PearSocketClient({host: '127.0.0.1', port: 26538});
 
     constructor(private pi: YTMDPi) {
         this.pi.globalAuthButtonElement.onclick = () => this.startAuthorization();
@@ -18,11 +24,11 @@ export class GlobalSettingsPi {
     public newGlobalSettingsReceived(): void {
         let settings = this.pi.settingsManager.getGlobalSettings<GlobalSettingsInterface>();
         if (Object.keys(settings).length < 2)
-            settings = {host: '127.0.0.1', port: '9863', token: ''};
+            settings = {host: '127.0.0.1', port: '26538', token: ''};
 
         const {
             host = '127.0.0.1',
-            port = '9863',
+            port = '26538',
             token = '',
         } = settings as GlobalSettingsInterface;
 
@@ -35,8 +41,23 @@ export class GlobalSettingsPi {
             token ? 'green' : 'red'
         );
         this.pi.globalSettingsDetailsElement.open = !token;
+
+        if (!token && !this.autoAuthorizationAttempted) {
+            this.autoAuthorizationAttempted = true;
+            this.scheduleAuthorizationRetry(2000);
+        }
+
         this.ensureSocketClient(host, port, token);
         this.refreshConnectionStatus();
+    }
+
+    private scheduleAuthorizationRetry(delayMs = 5000) {
+        if (this.authRetryTimer) {
+            window.clearTimeout(this.authRetryTimer);
+        }
+        this.authRetryTimer = window.setTimeout(() => {
+            void this.startAuthorization(true);
+        }, delayMs);
     }
 
     private async refreshConnectionStatus() {
@@ -89,7 +110,7 @@ export class GlobalSettingsPi {
 
         if (!GlobalSettingsPi.socketListenersAttached) {
             GlobalSettingsPi.socketListenersAttached = true;
-            connector.socketClient.addConnectionStateListener((state: SocketState) => {
+            this.socket.addConnectionStateListener((state: SocketState) => {
                 switch (state) {
                     case SocketState.CONNECTING:
                         this.setConnectionStatus(this.pi.getLangString("CONNECTION_STATUS_CHECKING"), 'gray');
@@ -107,7 +128,7 @@ export class GlobalSettingsPi {
                         break;
                 }
             });
-            connector.socketClient.addErrorListener((error: any) => {
+            this.socket.addErrorListener((error: any) => {
                 this.pi.logMessage(`Connection status check failed: ${JSON.stringify(error)}`);
                 if (error satisfies ErrorOutput && error.statusCode === 429) {
                     const seconds = this.getRetrySeconds(error.message);
@@ -119,56 +140,48 @@ export class GlobalSettingsPi {
         }
 
         if (token) {
-            connector.socketClient.connect();
+            this.socket.setSettings({host: normalizedHost, port: parseInt(port), token});
+            this.socket.connect();
         } else {
             this.setConnectionStatus(this.pi.getLangString("CONNECTION_STATUS_AUTH_REQUIRED"), 'red');
         }
     }
 
-    private async startAuthorization() {
+    private async startAuthorization(isAutomatic = false) {
         if (this.pi.globalAuthButtonElement.disabled) return;
+        if (isAutomatic && this.authRetryCount >= this.maxAuthRetries) return;
+
         try {
+            if (isAutomatic) this.authRetryCount += 1;
             this.setAuthStatusMessage(this.pi.getLangString("AUTH_STATUS_CONNECTING"), 'yellow');
 
             let host = this.pi.globalHostElement.value;
             const port = this.pi.globalPortElement.value;
             if (host === 'localhost') host = '127.0.0.1';
 
-            const connector = getCompanionConnector();
-            connector.settings = {
-                appId: PluginData.APP_ID,
-                appName: PluginData.APP_NAME,
-                appVersion: PluginData.APP_VERSION,
-                host,
-                port: parseInt(port)
-            };
-
-            const authCode = await connector.restClient.getAuthCode();
             this.setAuthStatusMessage(this.pi.getLangString("AUTH_STATUS_AUTHORIZING"), 'yellow');
-            if (!authCode.code) {
-                this.setAuthStatusMessage(this.pi.getLangString("AUTH_STATUS_ERROR"), 'red');
-                return;
-            }
+            const response = await fetch(
+                `http://${host}:${parseInt(port)}/auth/${encodeURIComponent(PluginData.APP_ID)}`,
+                {method: 'POST'},
+            );
+            const result = await response.json() as {accessToken?: string; message?: string};
 
-            this.pi.globalAuthStatusElement.innerText = this.pi.getLangString("AUTH_CODE_STATUS", {
-                code: authCode.code,
-                compare: this.pi.getLangString("AUTH_CODE_COMPARE")
-            });
-            const authToken = await connector.restClient.getAuthToken(authCode.code);
-
-            if (authToken.token) {
-                this.authToken = authToken.token;
+            if (response.ok && result.accessToken) {
+                this.authToken = result.accessToken;
+                this.authRetryCount = 0;
                 this.setAuthStatusMessage(this.pi.getLangString("AUTH_STATUS_CONNECTED"), 'green');
                 this.saveSettings();
             } else {
-                this.authErrorCatched(authToken);
+                this.authErrorCatched({
+                    message: result.message ?? `Authorization request failed (${response.status})`,
+                }, isAutomatic);
             }
         } catch (e) {
-            this.authErrorCatched(e);
+            this.authErrorCatched(e, isAutomatic);
         }
     }
 
-    private authErrorCatched(err: any) {
+    private authErrorCatched(err: any, isAutomatic = false) {
         this.pi.logMessage(`Auth error: ${JSON.stringify(err)}`);
         let msg = "";
         if (err satisfies ErrorOutput) {
@@ -182,6 +195,10 @@ export class GlobalSettingsPi {
         }
         this.setAuthStatusMessage(`${this.pi.getLangString("AUTH_STATUS_ERROR")}\n${msg}`, 'red');
         this.pi.globalSettingsDetailsElement.open = true;
+
+        if (isAutomatic && this.authRetryCount < this.maxAuthRetries) {
+            this.scheduleAuthorizationRetry(5000);
+        }
     }
 
     private saveSettings() {

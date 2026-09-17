@@ -9,10 +9,10 @@ fs.mkdirSync('build');
 
 // Create plugin folder
 console.log('Creating plugin folder');
-if (fs.existsSync('build/fun.shiro.ytmd.sdPlugin')) {
-    fs.rmSync('build/fun.shiro.ytmd.sdPlugin', {recursive: true, force: true});
+if (fs.existsSync('build/com.pear.desktop.streamdeck.sdPlugin')) {
+    fs.rmSync('build/com.pear.desktop.streamdeck.sdPlugin', {recursive: true, force: true});
 }
-fs.mkdirSync('build/fun.shiro.ytmd.sdPlugin');
+fs.mkdirSync('build/com.pear.desktop.streamdeck.sdPlugin');
 
 // Build plugin
 console.log('Building plugin');
@@ -31,13 +31,13 @@ async function bundle(entryPoint, outFile) {
 
 async function main() {
     await Promise.all([
-        bundle('src/ytmd-pi.ts', 'build/fun.shiro.ytmd.sdPlugin/bundle-pi.js'),
-        bundle('src/ytmd.ts', 'build/fun.shiro.ytmd.sdPlugin/bundle.js')
+        bundle('src/pear-desktop-pi.ts', 'build/com.pear.desktop.streamdeck.sdPlugin/bundle-pi.js'),
+        bundle('src/pear-desktop.ts', 'build/com.pear.desktop.streamdeck.sdPlugin/bundle.js')
     ]);
 
     // Copy files
     console.log('Copying files');
-    const outputDir = 'build/fun.shiro.ytmd.sdPlugin';
+    const outputDir = 'build/com.pear.desktop.streamdeck.sdPlugin';
     const rootEntries = fs.readdirSync('.');
 
     const excludedJson = new Set([
@@ -60,7 +60,7 @@ async function main() {
         .filter((name) => name.endsWith('.css'))
         .forEach((name) => fs.copyFileSync(name, `${outputDir}/${name}`));
 
-    fs.cpSync('icons', 'build/fun.shiro.ytmd.sdPlugin/icons', {recursive: true});
+    fs.cpSync('icons', `${outputDir}/icons`, {recursive: true});
 
     // Done building plugin folder, check the build directory
     console.log('Done building plugin folder, check the build directory');

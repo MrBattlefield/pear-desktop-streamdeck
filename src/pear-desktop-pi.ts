@@ -8,7 +8,7 @@ import {PlayPlaylistPi} from './pis/features/play-playlist.pi';
 import {VolumeChangePi} from './pis/features/volume-change.pi';
 import {PiI18n} from './pis/services/pi-i18n';
 
-export class YTMDPi extends StreamDeckPropertyInspectorHandler {
+export class PearDesktopPropertyInspector extends StreamDeckPropertyInspectorHandler {
     // Play / Pause Settings
     public playPauseSettings: HTMLElement;
     public actionElement: HTMLInputElement;
@@ -228,4 +228,6 @@ export class YTMDPi extends StreamDeckPropertyInspectorHandler {
     }
 }
 
-new YTMDPi();
+export {PearDesktopPropertyInspector as YTMDPi};
+
+new PearDesktopPropertyInspector();

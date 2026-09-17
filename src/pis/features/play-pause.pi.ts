@@ -1,4 +1,4 @@
-import {YTMDPi} from '../../ytmd-pi';
+import {YTMDPi} from '../../pear-desktop-pi';
 import {PisAbstract} from '../pis.abstract';
 import {DidReceiveSettingsEvent} from "streamdeck-typescript";
 import {PlayPauseSettings} from "../../interfaces/context-settings.interface";

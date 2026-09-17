@@ -5,20 +5,21 @@ import {
     WillAppearEvent,
     WillDisappearEvent,
 } from 'streamdeck-typescript';
-import { YTMD } from '../ytmd';
-import {RestClient, SocketClient} from "ytmdesktop-ts-companion";
+import { YTMD } from '../pear-desktop';
+import {PearSocketClient} from '../services/pear-socket-client';
+import {PearRestClient} from '../services/pear-rest-client';
 
 export abstract class DefaultAction<Instance> extends StreamDeckAction<
     YTMD,
     Instance
 > {
-    socket: SocketClient;
-    rest: RestClient;
+    socket: PearSocketClient;
+    rest: PearRestClient;
 
     protected constructor(plugin: YTMD, actionName: string) {
         super(plugin, actionName);
-        this.socket = YTMD.COMPANION.socketClient;
-        this.rest = YTMD.COMPANION.restClient;
+        this.socket = YTMD.SOCKET;
+        this.rest = YTMD.REST;
         console.info(`Initialized ${actionName}`);
         plugin.logMessage(`Initialized ${actionName}`);
     }

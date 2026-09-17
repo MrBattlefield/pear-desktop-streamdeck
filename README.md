@@ -10,30 +10,30 @@
 - [7. How to contribute?](#7-how-to-contribute)
 
 # 2. Badges
-[![Forks](https://img.shields.io/github/forks/XeroxDev/YTMD-StreamDeck?color=blue&style=for-the-badge)](https://github.com/XeroxDev/YTMD-StreamDeck/network/members)
-[![Stars](https://img.shields.io/github/stars/XeroxDev/YTMD-StreamDeck?color=yellow&style=for-the-badge)](https://github.com/XeroxDev/YTMD-StreamDeck/stargazers)
-[![Watchers](https://img.shields.io/github/watchers/XeroxDev/YTMD-StreamDeck?color=lightgray&style=for-the-badge)](https://github.com/XeroxDev/YTMD-StreamDeck/watchers)
-[![Contributors](https://img.shields.io/github/contributors/XeroxDev/YTMD-StreamDeck?color=green&style=for-the-badge)](https://github.com/XeroxDev/YTMD-StreamDeck/graphs/contributors)
+[![Forks](https://img.shields.io/github/forks/MrBattlefield/pear-desktop-streamdeck?color=blue&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/network/members)
+[![Stars](https://img.shields.io/github/stars/MrBattlefield/pear-desktop-streamdeck?color=yellow&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/stargazers)
+[![Watchers](https://img.shields.io/github/watchers/MrBattlefield/pear-desktop-streamdeck?color=lightgray&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/watchers)
+[![Contributors](https://img.shields.io/github/contributors/MrBattlefield/pear-desktop-streamdeck?color=green&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/graphs/contributors)
 
-[![Issues](https://img.shields.io/github/issues/XeroxDev/YTMD-StreamDeck?color=yellow&style=for-the-badge)](https://github.com/XeroxDev/YTMD-StreamDeck/issues)
-[![Issues closed](https://img.shields.io/github/issues-closed/XeroxDev/YTMD-StreamDeck?color=yellow&style=for-the-badge)](https://github.com/XeroxDev/YTMD-StreamDeck/issues?q=is%3Aissue+is%3Aclosed)
+[![Issues](https://img.shields.io/github/issues/MrBattlefield/pear-desktop-streamdeck?color=yellow&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/issues)
+[![Issues closed](https://img.shields.io/github/issues-closed/MrBattlefield/pear-desktop-streamdeck?color=yellow&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/issues?q=is%3Aissue+is%3Aclosed)
 
-[![Issues-pr](https://img.shields.io/github/issues-pr/XeroxDev/YTMD-StreamDeck?color=yellow&style=for-the-badge)](https://github.com/XeroxDev/YTMD-StreamDeck/pulls)
-[![Issues-pr closed](https://img.shields.io/github/issues-pr-closed/XeroxDev/YTMD-StreamDeck?color=yellow&style=for-the-badge)](https://github.com/XeroxDev/YTMD-StreamDeck/pulls?q=is%3Apr+is%3Aclosed)
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](https://github.com/XeroxDev/YTMD-StreamDeck/compare)
+[![Issues-pr](https://img.shields.io/github/issues-pr/MrBattlefield/pear-desktop-streamdeck?color=yellow&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/pulls)
+[![Issues-pr closed](https://img.shields.io/github/issues-pr-closed/MrBattlefield/pear-desktop-streamdeck?color=yellow&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/pulls?q=is%3Apr+is%3Aclosed)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/compare)
 
-[![Release](https://img.shields.io/github/release/XeroxDev/YTMD-StreamDeck?color=black&style=for-the-badge)](https://github.com/XeroxDev/YTMD-StreamDeck/releases)
+[![Release](https://img.shields.io/github/release/MrBattlefield/pear-desktop-streamdeck?color=black&style=for-the-badge)](https://github.com/MrBattlefield/pear-desktop-streamdeck/releases)
 
 [![Awesome Badges](https://img.shields.io/badge/badges-awesome-green?style=for-the-badge)](https://shields.io)
 
 # 3. What is this Plugin?
-This Stream Deck Plugin allows you to control the [YouTube Music Desktop App](https://github.com/ytmdesktop/ytmdesktop)
+This Stream Deck Plugin allows you to control [Pear Desktop Music Player](https://github.com/XeroxDev/pear-desktop)
 
 > [!NOTE]
 > we only support version 2.x.x and above, if you are using an older version, please update to the latest version.
 
 # 4. Support / Feedback
-You found a bug? You have a feature request? I would love to hear about it [here](https://github.com/XeroxDev/YTMD-StreamDeck/issues/new/choose) or click on the "Issues" tab here on the GitHub repositorie!
+You found a bug? You have a feature request? I would love to hear about it [here](https://github.com/MrBattlefield/pear-desktop-streamdeck/issues/new/choose) or click on the "Issues" tab here on the GitHub repository!
 
 You can also join my discord [here](https://x.xeroxdev.de/s/discord)
 
@@ -58,20 +58,20 @@ You can also join my discord [here](https://x.xeroxdev.de/s/discord)
 
 # 6. How to use it?
 > [!NOTE]
-> This is just a simplified version, please visit the [official documentation](https://help.xeroxdev.de/en/stream-deck/ytmd/home#h-5-how-to-use-it) for a more detailed guide.
+> This is just a simplified version. The project documentation will be published with the new repository.
 
-1. Install the [YouTube Music Desktop App](https://github.com/ytmdesktop/ytmdesktop).
-2. Install the Plugin from [Releases](https://github.com/XeroxDev/YTMD-StreamDeck/releases) or from the official Stream Deck Store.
+1. Install [Pear Desktop Music Player](https://github.com/XeroxDev/pear-desktop).
+2. Install the plugin from [Releases](https://github.com/XeroxDev/Pear-Desktop-StreamDeck/releases) or from the official Stream Deck Store.
 3. Add Play/Pause action
-4. Insert, if not already correct, the settings to YTMDesktop (eg. Host and Port)
-5. Make sure the YTMDesktop App and the Companion Server is running
-   - To start the companion server, click at the top right of YTMDesktop on the settings gear
+4. Insert, if not already correct, the settings for Pear Desktop (for example, host and port).
+5. Make sure Pear Desktop and its Companion Server are running.
+  - To start the Companion Server, open Pear Desktop settings and select Integrations
    - Go on the left side on the "Integrations" tab
    - Enable the "Companion Server"
 6. Turn on "enable companion authorization" under the Companion Server
 7. Press the Authorize button in the Play/Pause action settings
-8. Compare the authorization code displaying by the plugin with the one displaying in the YTMDesktop App
-9. If they match, confirm the authorization in the YTMDesktop App
+8. Compare the authorization code displayed by the plugin with the one displayed in Pear Desktop.
+9. If they match, confirm the authorization in Pear Desktop.
 10. You are ready to go! (Steps 6-9 are only needed once/when the plugin isn't authorized)
 
 # 7. How to contribute?

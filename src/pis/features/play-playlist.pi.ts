@@ -1,5 +1,5 @@
 import {DidReceiveSettingsEvent} from 'streamdeck-typescript';
-import {YTMDPi} from '../../ytmd-pi';
+import {YTMDPi} from '../../pear-desktop-pi';
 import {PisAbstract} from '../pis.abstract';
 import {ErrorOutput, PlaylistOutput} from "ytmdesktop-ts-companion";
 import {getCompanionConnector} from "../services/companion-singleton";
@@ -24,11 +24,11 @@ export class PlayPlaylistPi extends PisAbstract {
     public newGlobalSettingsReceived(): void {
         let settings = this.settingsManager.getGlobalSettings<GlobalSettingsInterface>();
         if (Object.keys(settings).length < 3)
-            settings = {host: '127.0.0.1', port: '9863'};
+            settings = {host: '127.0.0.1', port: '26538'};
 
         const {
             host = '127.0.0.1',
-            port = '9863',
+            port = '26538',
             token = '',
         } = settings as GlobalSettingsInterface;
         if (token) this.scheduleInitialLoad();

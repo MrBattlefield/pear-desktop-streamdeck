@@ -10,7 +10,7 @@ export const getCompanionConnector = () => {
             appName: PluginData.APP_NAME,
             appVersion: PluginData.APP_VERSION,
             host: '127.0.0.1',
-            port: 9863
+            port: 26538
         });
     }
     return connector;

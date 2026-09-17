@@ -1,6 +1,6 @@
 import {KeyUpEvent, SDOnActionEvent, WillAppearEvent, WillDisappearEvent} from 'streamdeck-typescript';
 import {ActionTypes} from '../interfaces/enums';
-import {YTMD} from '../ytmd';
+import {YTMD} from '../pear-desktop';
 import {DefaultAction} from './default.action';
 
 export class ShuffleAction extends DefaultAction<ShuffleAction> {

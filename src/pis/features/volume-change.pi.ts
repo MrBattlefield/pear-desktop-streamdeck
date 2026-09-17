@@ -1,6 +1,6 @@
 import { DidReceiveSettingsEvent } from 'streamdeck-typescript';
 import { VolumeSettings } from '../../interfaces/context-settings.interface';
-import { YTMDPi } from '../../ytmd-pi';
+import { YTMDPi } from '../../pear-desktop-pi';
 import { PisAbstract } from '../pis.abstract';
 
 export class VolumeChangePi extends PisAbstract {

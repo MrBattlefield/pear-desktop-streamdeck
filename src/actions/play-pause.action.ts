@@ -8,7 +8,7 @@ import {
     WillAppearEvent,
     WillDisappearEvent,
 } from 'streamdeck-typescript';
-import {YTMD} from '../ytmd';
+import {YTMD} from '../pear-desktop';
 import {DefaultAction} from './default.action';
 import {PlayPauseSettings} from "../interfaces/context-settings.interface";
 import {SocketState, StateOutput, TrackState} from "ytmdesktop-ts-companion";
@@ -81,12 +81,12 @@ export class PlayPauseAction extends DefaultAction<PlayPauseAction> {
                 this.handlePlayerData(event, state);
                 if (this.lastcheck === 0 && this.ticks !== 0)
                     {
-                    if (this.ticks > 0) this.rest.next().catch(reason => {
+                    if (this.ticks > 0) this.rest.goForward(5).catch(reason => {
                         console.error(reason);
                         this.plugin.logMessage(`Error while next. event: ${JSON.stringify(event)}, error: ${JSON.stringify(reason)}`);
                         this.plugin.showAlert(event.context)
                     })
-                    else this.rest.previous().catch(reason => {
+                    else this.rest.goBack(5).catch(reason => {
                         console.error(reason);
                         this.plugin.logMessage(`Error while previous. event: ${JSON.stringify(event)}, error: ${JSON.stringify(reason)}`);
                         this.plugin.showAlert(event.context)
@@ -190,11 +190,12 @@ export class PlayPauseAction extends DefaultAction<PlayPauseAction> {
             this.plugin.showAlert(context);
             return;
         }
-        let current = Math.floor(data.player.videoProgress);
+        const current = data.player.videoProgress;
+        const displayedCurrent = Math.floor(current);
         let duration = Math.floor(data.video?.durationSeconds ?? 0);
-        let remaining = duration - current;
+        let remaining = duration - displayedCurrent;
 
-        const time = this.formatTime(current, duration, remaining, context, settings);
+        const time = this.formatTime(displayedCurrent, duration, remaining, context, settings);
         const {title, album, author, cover} = this.getSongData(data);
         const formattitle = this.formatTitle(title, album, author, context, settings);
 
@@ -202,7 +203,6 @@ export class PlayPauseAction extends DefaultAction<PlayPauseAction> {
             this.firstTimes--;
             this.currentTitle = time;
             this.plugin.setTitle(this.currentTitle, context);
-            this.plugin.setFeedback(context, {"icon": this.thumbnail, "value": this.currentTitle, "indicator": { "value": current / duration * 100, "enabled": true}});
             if (formattitle != "")
             {
                 this.plugin.setFeedback(context, {"title": formattitle});
@@ -246,6 +246,8 @@ export class PlayPauseAction extends DefaultAction<PlayPauseAction> {
                 image.src = cover;
             }
         }
+
+        this.plugin.setFeedback(context, {"icon": this.thumbnail, "value": this.currentTitle, "indicator": { "value": duration > 0 ? current / duration * 100 : 0, "enabled": duration > 0}});
 
         if (this.trackState !== data.player.trackState) {
             this.trackState = data.player.trackState;
