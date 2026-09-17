@@ -81,16 +81,15 @@ export class PlayPauseAction extends DefaultAction<PlayPauseAction> {
                 this.handlePlayerData(event, state);
                 if (this.lastcheck === 0 && this.ticks !== 0)
                     {
-                    if (this.ticks > 0) this.rest.goForward(5).catch(reason => {
+                    const encoderMode = event.payload.settings?.encoderMode ?? 'SEEK';
+                    const rotateAction = encoderMode === 'TRACK_NAVIGATION'
+                        ? (this.ticks > 0 ? this.rest.next() : this.rest.previous())
+                        : (this.ticks > 0 ? this.rest.goForward(5) : this.rest.goBack(5));
+                    rotateAction.catch(reason => {
                         console.error(reason);
-                        this.plugin.logMessage(`Error while next. event: ${JSON.stringify(event)}, error: ${JSON.stringify(reason)}`);
+                        this.plugin.logMessage(`Error while dial rotation. event: ${JSON.stringify(event)}, error: ${JSON.stringify(reason)}`);
                         this.plugin.showAlert(event.context)
-                    })
-                    else this.rest.goBack(5).catch(reason => {
-                        console.error(reason);
-                        this.plugin.logMessage(`Error while previous. event: ${JSON.stringify(event)}, error: ${JSON.stringify(reason)}`);
-                        this.plugin.showAlert(event.context)
-                    })
+                    });
                     this.ticks = 0;
                     this.lastcheck = 3;
                 }

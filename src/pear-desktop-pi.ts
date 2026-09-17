@@ -12,6 +12,7 @@ export class PearDesktopPropertyInspector extends StreamDeckPropertyInspectorHan
     // Play / Pause Settings
     public playPauseSettings: HTMLElement;
     public actionElement: HTMLInputElement;
+    public encoderModeElement: HTMLSelectElement;
     public displayFormatElement: HTMLInputElement;
     public displayTitleFormatElement: HTMLInputElement;
     public sdplusSettingsElement: HTMLInputElement;

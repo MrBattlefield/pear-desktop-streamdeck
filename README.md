@@ -62,11 +62,33 @@ Authorization is normally required only once per installation.
 
 - Play or pause the current track
 - Next and previous track
+- Stream Deck+ and Stream Deck+ XL dial seeking with rotation and play/pause with dial press
+- Stream Deck+ dial navigation mode: Previous Track, Play/Pause, and Next Track
 - Like and dislike the current track
 - Mute, increase, and decrease volume
 - Track information with thumbnail, title, and artist
 - Shuffle and repeat modes
 - Play a selected playlist
+
+## Stream Deck+ and Stream Deck+ XL dials
+
+Add the **Play-Pause** action to an encoder on Stream Deck+ or Stream Deck+ XL. The action supports two selectable encoder modes in its Stream Deck settings:
+
+- **Seek Track**: rotate left to seek backward 5 seconds, rotate right to seek forward 5 seconds, and press the dial to play or pause.
+- **Previous / Play-Pause / Next**: rotate left for Previous Track, press for Play/Pause, and rotate right for Next Track.
+
+The default is **Seek Track**, so existing configurations keep their current behavior.
+
+## Icon themes
+
+The repository includes four complete icon collections for users who want to customize the appearance of their Stream Deck buttons:
+
+- `icons/themes/dark_filled`
+- `icons/themes/dark_outlined`
+- `icons/themes/light_filled`
+- `icons/themes/light_outlined`
+
+Each collection includes standard and `@2x` assets. To use a collection, copy its files over the matching files in `icons`, rebuild the plugin, and reinstall it. This changes the complete button set consistently while leaving the action behavior unchanged.
 
 ## Development
 
